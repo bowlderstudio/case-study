@@ -14,6 +14,7 @@ function roundHalf(num) {
 
 function getData()
 {
+    document.getElementById("data").innerHTML = "";
     var latitude = parseFloat(document.getElementById("latitude").value);
     latitude=roundHalf(latitude);
     var longitude = parseFloat(document.getElementById("longitude").value);
@@ -22,7 +23,6 @@ function getData()
         !(longitude>=-180 && longitude<=180) )
     {
         document.getElementById("description").innerHTML = "Invalid latitude or longitude values.";
-        document.getElementById("data").innerHTML = "";
     } else {
         document.getElementById("description").innerHTML = `Get data from lat=${latitude} and lon=${longitude}`;
         var theUrl = `https://europe-west1-freesolarcalc.cloudfunctions.net/wave_max/?lat=${latitude}&lon=${longitude}`;
